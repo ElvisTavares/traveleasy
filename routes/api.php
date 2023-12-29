@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Travel\StoreTravelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('/travel')->name('.travel')->group(function () {
+    Route::post('/', StoreTravelController::class)->name('.store');
 });
