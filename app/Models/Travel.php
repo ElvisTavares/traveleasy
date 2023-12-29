@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Travel extends Model
 {
@@ -20,4 +21,12 @@ class Travel extends Model
         'accommodation',
         'budget',
     ];
+
+    /**
+     * @return BelongsToMany
+     */
+    public function destinies(): BelongsToMany
+    {
+        return $this->belongsToMany(Destiny::class, 'travel_destinies', 'travel_id', 'destinies_id');
+    }
 }
