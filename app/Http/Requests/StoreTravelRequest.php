@@ -22,13 +22,15 @@ class StoreTravelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|max:255',
+            'travel_name' => 'string|max:255',
             'departure_date' => 'required|date',
             'return_date' => 'required|date',
             'means_of_transport' => 'string|max:255',
             'accommodation' => 'string|max:255',
             //ensures that the number format is valid for a decimal value
             'budget' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
+            'destiny_name' => 'string',
+            'location' => 'string'
         ];
     }
 }

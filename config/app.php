@@ -171,6 +171,10 @@ return [
 
         //Travel
         App\Providers\StoreTravelServiceProvider::class,
+        App\Providers\TravelRepositoryServiceProvider::class,
+
+        //Destiny
+        App\Providers\DestinyRepositoryServiceProvider::class,
     ])->toArray(),
 
     /*
