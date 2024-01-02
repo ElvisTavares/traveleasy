@@ -10,12 +10,21 @@ use App\Services\Travel\Contracts\StoreTravelServiceContract;
 class StoreTravelService implements StoreTravelServiceContract
 {
 
+    /**
+     * @param TravelRepositoryContract $travelRepository
+     * @param DestinyRepositoryContract $destinyRepository
+     */
     public function __construct(
         protected TravelRepositoryContract $travelRepository,
         protected DestinyRepositoryContract $destinyRepository,
     ){
         //
     }
+
+    /**
+     * @param array $requestData
+     * @return Travel
+     */
     public function store(array $requestData): Travel
     {
         $travelData = $this->formatDataTravel($requestData);
@@ -31,6 +40,10 @@ class StoreTravelService implements StoreTravelServiceContract
         return $travel;
     }
 
+    /**
+     * @param array $requestData
+     * @return array
+     */
     private function formatDataTravel(array $requestData): array
     {
         return [
@@ -43,6 +56,10 @@ class StoreTravelService implements StoreTravelServiceContract
         ];
     }
 
+    /**
+     * @param array $requestData
+     * @return array
+     */
     private function formatDataDestiny(array $requestData): array
     {
         return [

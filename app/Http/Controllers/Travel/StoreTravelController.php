@@ -11,11 +11,18 @@ use Illuminate\Http\JsonResponse;
 
 class StoreTravelController extends Controller
 {
+    /**
+     * @param StoreTravelServiceContract $storeTravelService
+     */
     public function __construct(private StoreTravelServiceContract $storeTravelService)
     {
         //
     }
 
+    /**
+     * @param StoreTravelRequest $request
+     * @return JsonResponse
+     */
     public function __invoke(StoreTravelRequest $request): JsonResponse
     {
         try {
