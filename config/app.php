@@ -172,6 +172,7 @@ return [
         //Travel
         App\Providers\StoreTravelServiceProvider::class,
         App\Providers\TravelRepositoryServiceProvider::class,
+        App\Providers\GetTravelServiceProvider::class,
 
         //Destiny
         App\Providers\DestinyRepositoryServiceProvider::class,

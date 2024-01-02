@@ -8,6 +8,7 @@ use App\Http\Resources\TravelResource;
 use App\Services\Travel\Contracts\StoreTravelServiceContract;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 
 class StoreTravelController extends Controller
 {
@@ -31,6 +32,12 @@ class StoreTravelController extends Controller
 
             return response()->json(TravelResource::make($travel));
         } catch (Exception $exception) {
+            Log::error('Unexpected error', [
+                'exception' => $exception,
+                'code' => 'store_travels_unexpected_error',
+                'controller' => 'store_travel',
+            ]);
+
             return response()->json([
                 'message' => 'Unexpected error',
             ], 500);
