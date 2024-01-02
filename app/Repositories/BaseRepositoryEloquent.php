@@ -20,4 +20,12 @@ class BaseRepositoryEloquent implements BaseRepositoryContract
     {
         return $this->model::create($data);
     }
+
+    /*
+  * {@inheritDoc}
+  */
+    public function findBy(string $attribute, $value): Model
+    {
+        return $this->model::where($attribute, $value)->firstOrFail();
+    }
 }

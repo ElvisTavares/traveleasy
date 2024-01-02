@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Travel\GetTravelByIdController;
 use App\Http\Controllers\Travel\GetTravelController;
 use App\Http\Controllers\Travel\StoreTravelController;
 use Illuminate\Http\Request;
@@ -23,4 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('/travel')->name('.travel')->group(function () {
     Route::post('/store', StoreTravelController::class)->name('.store');
     Route::get('/', GetTravelController::class)->name('.list');
+    Route::get('/{id}', GetTravelByIdController::class)->name('.list.id');
 });
