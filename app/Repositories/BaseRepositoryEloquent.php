@@ -28,4 +28,18 @@ class BaseRepositoryEloquent implements BaseRepositoryContract
     {
         return $this->model::where($attribute, $value)->firstOrFail();
     }
+
+    /*
+    * {@inheritDoc}
+    */
+    public function update(int|Model $model, array $attributes = [], array $options = []): bool
+    {
+        if ($model instanceof Model) {
+            return $model->update($attributes, $options);
+        }
+
+        return $this->model::query()
+            ->where($model)
+            ->update($attributes, $options);
+    }
 }

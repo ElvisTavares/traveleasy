@@ -173,6 +173,8 @@ return [
         App\Providers\StoreTravelServiceProvider::class,
         App\Providers\TravelRepositoryServiceProvider::class,
         App\Providers\GetTravelServiceProvider::class,
+        App\Providers\UpdateTravelServiceProvider::class,
+        App\Providers\DeleteTravelServiceProvider::class,
 
         //Destiny
         App\Providers\DestinyRepositoryServiceProvider::class,
